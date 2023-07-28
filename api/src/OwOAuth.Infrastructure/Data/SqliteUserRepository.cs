@@ -107,6 +107,7 @@ internal sealed class SqliteUserRepository
         {
             UserId = model.UserId.ToString(),
             Username = model.Username,
+            EmailAddress = model.EmailAddress,
             Password = model.Password,
         };
 
