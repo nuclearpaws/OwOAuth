@@ -1,0 +1,26 @@
+<div>
+    <button
+        @onclick="() => OnInnerButtonClick()"
+        disabled="@Disabled">
+        @Text
+    </button>
+</div>
+
+@inject IJSRuntime _jsRuntime;
+
+@code
+{
+    [Parameter]
+    public string Text { get; set; } = string.Empty;
+
+    [Parameter]
+    public bool Disabled { get; set; } = false;
+
+    [Parameter]
+    public EventCallback OnClick { get; set; } = default;
+
+    private async Task OnInnerButtonClick()
+    {
+        await OnClick.InvokeAsync();
+    }
+}

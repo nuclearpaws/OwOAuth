@@ -1,0 +1,40 @@
+﻿@inherits LayoutComponentBase
+
+<ul>
+    @foreach (var pageDto in _pageDtos)
+    {
+        <li>
+            <a href="@pageDto.Path">@pageDto.Name</a>
+        </li>
+    }
+</ul>
+<hr />
+
+@Body
+
+<hr />
+<small>The End</small>
+<hr />
+
+@code
+{
+    private readonly IEnumerable<PageDto> _pageDtos = new[]
+    {
+        new PageDto
+        {
+            Name = "Home",
+            Path = string.Empty,
+        },
+        new PageDto
+        {
+            Name = "Kek",
+            Path = "/kek",
+        },
+    };
+
+    public sealed class PageDto
+    {
+        public string Name { get; set; } = string.Empty;
+        public string Path { get; set; } = string.Empty;
+    }
+}

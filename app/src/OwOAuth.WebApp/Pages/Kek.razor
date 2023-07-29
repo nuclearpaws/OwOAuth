@@ -1,0 +1,68 @@
+@page "/kek"
+
+<ul>
+    @foreach (var someDto in _someDtos)
+    {
+        <li><code>@someDto.Id.ToString().ToUpper()</code> - @someDto.SomeString</li>
+    }
+</ul>
+
+<TextInput
+    Name="Username"
+    @bind-Value="_user" />
+<small>@_user</small>
+<PasswordInput
+    Name="Password"
+    @bind-Value="_password" />
+<small>@_password</small>
+<Button
+    Text="Add"
+    OnClick="AddSomeDto" />
+<Button
+    Text="Remove Random"
+    OnClick="RemoveRandomSomeDto"
+    Disabled="!_hasSomeDtos" />
+<Button
+    Text="Clear All"
+    OnClick="RemoveAllDtos"
+    Disabled="!_hasSomeDtos" />
+
+@code
+{
+    private readonly ICollection<SomeDto> _someDtos = new List<SomeDto>();
+
+    private bool _hasSomeDtos => _someDtos.Any();
+    
+    private string _user = string.Empty;
+    private string _password = string.Empty;
+
+    private void AddSomeDto()
+    {
+        var someDto = new SomeDto
+        {
+            Id = Guid.NewGuid(),
+            SomeString = _user,
+        };
+        _someDtos.Add(someDto);
+    }
+
+    private void RemoveRandomSomeDto()
+    {
+        var length = _someDtos.Count();
+        var index = Random.Shared.Next(0, length);
+        var someDto = _someDtos.ElementAt(index);
+        _someDtos.Remove(someDto);
+    }
+
+    private void RemoveAllDtos()
+    {
+        _someDtos.Clear();
+    }
+
+    private sealed class SomeDto
+    {
+        public Guid Id { get; set; }
+        public string SomeString { get; set; } = string.Empty;
+    }
+}
+
