@@ -11,6 +11,8 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@types/node": "^18.17.1",
-    "nuxt": "^3.6.5"
+    "naive-ui": "^2.34.4",
+    "nuxt": "^3.6.5",
+    "vfonts": "^0.0.3"
   }
 }
