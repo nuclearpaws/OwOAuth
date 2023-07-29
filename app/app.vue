@@ -1,14 +1,11 @@
 <template>
-    <div>
-        <p>Hello World!</p>
-        <n-space>
-            <n-button>Default</n-button>
-            <n-button type="tertiary"> Tertiary </n-button>
-            <n-button type="primary"> Primary </n-button>
-            <n-button type="info"> Info </n-button>
-            <n-button type="success"> Success </n-button>
-            <n-button type="warning"> Warning </n-button>
-            <n-button type="error"> Error </n-button>
-        </n-space>
-    </div>
+    <n-config-provider v-bind:theme="darkTheme">
+        <NuxtLayout>
+            <NuxtPage />
+        </NuxtLayout>
+    </n-config-provider>
 </template>
+
+<script setup>
+import { darkTheme } from "naive-ui";
+</script>
