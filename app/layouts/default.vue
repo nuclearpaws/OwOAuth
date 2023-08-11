@@ -1,21 +1,16 @@
+<script setup>
+const route = useRoute();
+</script>
+
 <template>
-    <div>
-        <span>Authorized...</span>
-        <hr />
-        <ul>
-            <li>
-                <button v-on:click="navigateTo('/')">Home</button>
-            </li>
-            <li>
-                <button v-on:click="navigateTo('kek')">Kek</button>
-            </li>
-            <li>
-                <button v-on:click="navigateTo('login')">Logout</button>
-            </li>
-        </ul>
-        <hr />
-        <slot />
+    <div class="w-full flex flex-col sm:flex-row flex-grow overflow-hidden">
+        <div class="sm:w-1/3 md:1/4 w-full flex-shrink flex-grow-0 p-4">
+            <div class="sticky top-0 p-4 w-full">
+                <owo-side-nav v-bind:active-key="route.name" />
+            </div>
+        </div>
+        <main role="main" class="w-full h-full flex-grow p-3 overflow-auto">
+            <slot />
+        </main>
     </div>
 </template>
-
-<script setup></script>
