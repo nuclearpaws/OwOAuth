@@ -1,5 +1,5 @@
 <template>
-    <n-button v-on:click="navigateTo('')">Login</n-button>
+    <button v-on:click="navigateTo('')">Login</button>
 </template>
 
 <script setup>

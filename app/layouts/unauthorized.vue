@@ -1,7 +1,7 @@
 <template>
-    <n-space vertical size="large">
-        <n-layout>
-            <slot />
-        </n-layout>
-    </n-space>
+    <div>
+        <span>Unauthorized...</span>
+        <hr />
+        <slot />
+    </div>
 </template>

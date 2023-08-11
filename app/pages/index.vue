@@ -1,7 +1,7 @@
 <template>
     <span>CONTENT</span>
     <hr />
-    <n-button v-on:click="onClick">Hello World</n-button>
+    <button v-on:click="onClick">Hello World</button>
 </template>
 
 <script setup>
